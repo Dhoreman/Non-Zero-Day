@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Progress
+{% endblock %}
+
+{% block main %}
+    <div class="alignleft">
+        <p><b>User:</b> {{ user[0]['username'] }} </p>
+
+        <h2>Current Streak: {{ user[0]['days'] }} day(s)</h2>
+        <h4>Personal Record: {{ user[0]['record'] }} day(s)</h4>
+
+        <br/>
+
+        <h3>Goals Reached:</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th class="text-start">Goal</th>
+                    <th class="text-start">Completed</th>
+                    <th class="text-end"></th>
+                    <th class="text-end"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for completed_goal in completed_goals %}
+                    <tr>
+                        <td class="text-start">{{ completed_goal.goal }}</td>
+                        <td class="text-start">{{ completed_goal.date_completed }}</td>
+                        <td class="text-end">
+                            <form action="/progress" method="post">
+                                <button type="submit" class="btn btn-sm btn-outline-success" name="reactivate" value="{{ completed_goal.id }}">Reactivate</button>
+                            </form>
+                        </td>
+                        <td class="text-end">
+                            <form action="/progress" method="post">
+                                <button type="submit" class="btn btn-sm btn-outline-danger" name="delete" value="{{ completed_goal.id }}">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <br/>
+        <h5>Recent activity:</h5>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th class="text-start">Activity</th>
+                    <th class="text-start">Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for activity in activities %}
+                    <tr>
+                        <td class="text-start">{{ activity.activity }}</td>
+                        <td class="text-start">{{ activity.date }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+
+    </div>
+{% endblock %}

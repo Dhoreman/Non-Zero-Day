@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+
+{% if today == non_zero_day %}
+    <h3>You're doing great!</h3>
+    <p>Check in tomorrow for another Non-Zero-Day.</p>
+
+{% else %}
+    <h3>Was today a Non-Zero-Day?</h3>
+    <form name="activate" action="/activate" method="post">
+        <button class="btn btn-primary" type="submit" value="Yes">Yes !!!</button>
+    </form>
+    <br/>
+    <form name="forgive" action="/forgive" method="post">
+        <button class="btn btn-primary" type="submit" value="No">No,...</button>
+    </form>
+{% endif %}
+
+{% endblock %}

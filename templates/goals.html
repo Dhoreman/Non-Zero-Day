@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Goals
+{% endblock %}
+
+{% block main %}
+
+<p>Would you like to add a goal?</p>
+    <form action="/addgoal" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="addgoal" name="addgoal" placeholder="goal" type="text">
+        </div>
+        <button class="btn btn-primary" type="submit">Add Goal</button>
+    </form>
+    <br/>
+
+    <h3 class="alignleft">Current Goals:</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="text-start" id="date_added">Date added</th>
+                <th class="text-start">Goal</th>
+                <th class="text-end"></th>
+                <th class="text-end"></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for goal in goals %}
+                <tr>
+                    <td class="text-start">{{ goal.date_added }}</td>
+                    <td class="text-start">{{ goal.goal }}</td>
+                    <td>
+                        <form action="/goals" method="post">
+                            <button type="submit" class="btn btn-sm btn-outline-success" name="complete" value="{{ goal.id }}">Complete</button>
+                        </form>
+                    <td>
+                        <form action="/goals" method="post">
+                            <button type="submit" class="btn btn-sm btn-outline-danger" name="delete" value="{{ goal.id }}">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

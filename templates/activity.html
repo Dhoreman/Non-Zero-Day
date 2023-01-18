@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Activity
+{% endblock %}
+
+{% block main %}
+
+    <p>What did you do today?</p>
+    <form action="/activity" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="activity" name="activity" placeholder="activity" type="text">
+        </div>
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+
+{% endblock %}
