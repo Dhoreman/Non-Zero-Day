@@ -13,7 +13,7 @@ If you recognize the problem explained above Non-Zero-Days might be of help to y
 
 **What's a Non-Zero-Day?**
 
-A on-Zero-Day is a day where you do anything, no matter how big or small, towards your goal.
+A Non-Zero-Day is a day where you do anything, no matter how big or small, towards your goal.
 For example if your goal is "to get in shape", doing one push-up counts as a Non-Zero-Day (as do 50 of course).
 You will find your motivation increases as you build a string of Non-Zero-Days!
 
@@ -42,7 +42,7 @@ This is done via a single record SQL table that checks the current_date continuo
 If you already logged an activity it will encourage you and ask you to come back tomorrow.
 if not it will ask you:
 
-"Was today was a Non-Zero-Day?".
+"Was today a Non-Zero-Day?".
 
 If you answer yes you will be able to add an activity which will be stored in a table, log your last activity date, add a day to your streak and compare the amount to your current record.
 If you answer no you will receive a message to reassure you. Remember that it's important to forgive yourself, we all have off-days.
